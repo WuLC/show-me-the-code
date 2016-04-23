@@ -2,7 +2,7 @@
 # @Author: LC
 # @Date:   2016-04-23 20:15:14
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-04-23 20:23:33
+# @Last Modified time: 2016-04-23 20:27:11
 # @Email: liangchaowu5@gmail.com
 
 import string
@@ -25,7 +25,7 @@ def activation_code_generaor(size=6,candidate_chars=upper_case+lower_case+digits
 	return code
 
 if __name__ == '__main__':
-	print activation_code_generaor()
+	print activation_code_generaor.__doc__
 	print activation_code_generaor()
 	print activation_code_generaor()
 	print activation_code_generaor()
