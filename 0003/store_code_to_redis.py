@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-04-25 16:08:14
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-04-25 20:13:23
+# @Last Modified time: 2016-04-25 20:51:32
 # @Email: liangchaowu5@gmail.com
 
 
@@ -30,9 +30,9 @@ def activation_code_generaor(size=6,candidate_chars=upper_case+lower_case+digits
 import redis
 import sys
 
-HOST = '110.64.76.112'
+HOST = 'XXXX'
 PORT =  6379
-PASSWD = 'scutbaimi!2#4%'
+PASSWD = 'XXXX'
 
 def import_to_reids(record_count=8):
 	"""import record_count pieces of records to redis with transaction
