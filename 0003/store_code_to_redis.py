@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-04-25 16:08:14
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-04-25 17:12:37
+# @Last Modified time: 2016-04-25 17:17:16
 # @Email: liangchaowu5@gmail.com
 
 
@@ -35,6 +35,14 @@ PORT =  6379
 PASSWD = 'scutbaimi!2#4%'
 
 def import_to_reids(record_count=8):
+	"""import record_count pieces of records to redis with transaction
+	
+	Args:
+	    record_count (int, optional): number of records to insert 
+	
+	Returns:
+	    None
+	"""
 	try:
 		conn = redis.Redis(host=HOST,port=PORT,password=PASSWD)
 	except:

@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-04-25 10:59:54
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-04-25 16:14:37
+# @Last Modified time: 2016-04-25 17:17:00
 # @Email: liangchaowu5@gmail.com
 
 import string
@@ -36,7 +36,7 @@ DB = 'hehe'
 TABLE = 'activation_code'
 
 def insert_to_mysql(record_count=8):
-	"""import record_count pieces of records to redis
+	"""import record_count pieces of records to mysql with transaction
 	
 	Args:
 	    record_count (int, optional): number of records to insert 
