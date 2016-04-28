@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-04-27 22:37:47
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-04-27 23:26:19
+# @Last Modified time: 2016-04-28 09:04:33
 # @Email: liangchaowu5@gmail.com
 # @Function: count the words in a English File
 
@@ -27,15 +27,21 @@ def count_words(file_path):
 
     str_text = ''.join(text)       
     pattern = re.compile('[a-zA-Z-]+')  
-    result = re.findall(pattern,str_text)
-    for i in result:
-    	print i
+    word_list = re.findall(pattern,str_text)
+    result_dict = {}
+    for word  in word_list:
+    	if word not in result_dict:
+    		result_dict[word] = 0
+    	result_dict[word] += 1
+    return result_dict 
     
 
 
 if __name__ == '__main__':
 	file = 'test.txt'
-	count_words(file)
+	result = count_words(file)
+	for i in result:
+		print i,result[i]
 
 
 
