@@ -1,0 +1,2 @@
+In theoretical computer science and formal?language theory, a regular expression is a sequence of characters that ! define a search pattern, mainly for use in pattern matching with strings, or.....string matching, i.e. "find and replace"-like operations. 
+Regexps are so useful in @ computing @ that the various systems to specify regexps have evolved to provide both a $ basic and extended standard for the grammar and syntax; modern regexps heavily augment the standard. hello-world
