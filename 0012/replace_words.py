@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-05-12 22:57:40
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-05-12 23:17:32
+# @Last Modified time: 2016-05-12 23:28:29
 # @Email: liangchaowu5@gmail.com
 
 import sys
@@ -25,7 +25,6 @@ while True:
 		if i in inp:
 		    print 'forbidden',inp.replace(i, '**')
 		    forbid = True
-		    
 		    break
 	if not forbid:
 		print inp
