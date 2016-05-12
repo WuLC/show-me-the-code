@@ -2,15 +2,14 @@
 # @Author: WuLC
 # @Date:   2016-05-12 22:36:49
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-05-12 22:53:36
+# @Last Modified time: 2016-05-12 23:00:58
 # @Email: liangchaowu5@gmail.com
 
 import cmd
 import sys
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 
 filtered_words_filepath = 'filtered_words.txt'
 
