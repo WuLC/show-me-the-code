@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-05-13 14:31:31
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-05-13 16:00:03
+# @Last Modified time: 2016-05-13 16:24:14
 # @Email: liangchaowu5@gmail.com
 
 # download images of a certain html page
@@ -68,6 +68,7 @@ def download_img(url, dir, num, log_file):
 	with open(file_path.decode('utf8'),'wb') as f:
 		f.write(content)
 		print '%s downloaded successfully'%file_path
+
 
 if __name__ == '__main__':
 	#img_test_url = 'https://pic2.zhimg.com/0038a5d499a5463c59aad768200f18e1_b.png'
