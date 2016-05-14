@@ -5,7 +5,7 @@
 
 - Python 练习册，每天一个小程序。注：将 Python 换成其他语言，大多数题目也适用
 
-- 本文本文由@史江歌（shijiangge@gmail.com  QQ:499065469）根据互联网资料收集整理而成，感谢互联网，感谢各位的分享。鸣谢！本文会不断更新。
+- 本文0000~0025题由@史江歌（shijiangge@gmail.com  QQ:499065469）根据互联网资料收集整理而成，感谢互联网，感谢各位的分享。鸣谢！本文会不断更新。
 
 > Talk is cheap. Show me the code.--Linus Torvalds
 
