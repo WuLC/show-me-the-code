@@ -2,13 +2,15 @@
 # @Author: WuLC
 # @Date:   2016-05-13 14:31:31
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-05-13 16:24:14
+# @Last Modified time: 2016-05-13 17:16:06
 # @Email: liangchaowu5@gmail.com
 
 # download images of a certain html page
 
 import urllib2
 import re
+
+downloaded = set()  # avoid repeat download
 
 def parse_page(url):
 	"""parse the html page and find all the urls of image
@@ -48,6 +50,10 @@ def download_img(url, dir, num, log_file):
 	Returns:
 	    None
 	"""
+
+	global downloaded # 防止重复下载
+	if url in downloaded:
+		return
 	try:
 		response = urllib2.urlopen(url)
 		content = response.read()
@@ -67,6 +73,7 @@ def download_img(url, dir, num, log_file):
 	file_path = dir+str(num)+suffix
 	with open(file_path.decode('utf8'),'wb') as f:
 		f.write(content)
+		downloaded.add(url)
 		print '%s downloaded successfully'%file_path
 
 
@@ -78,6 +85,8 @@ if __name__ == '__main__':
 	urls = parse_page(root_url)
 
 	for i in xrange(len(urls)):
+		if  '"' in urls[i]:
+			continue
 		download_img(urls[i],img_dir,i,log_file)
 
 
