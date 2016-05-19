@@ -97,7 +97,7 @@
 
 ![numbers.xls](http://i.imgur.com/iuz0Pbv.png)
 
-**第 0017 题：** 将 第 0014 题中的 student.xls 文件中的内容写到 student.xml 文件中，如
+**第 0017 题：** 将第 0014 题中的 student.xls 文件中的内容写到 student.xml 文件中，如
 
 下所示：
 
@@ -207,4 +207,4 @@
 
 **第 0031 题：** 使用 Python 语言开发服务器端口扫描器，用来检测目标服务器上有哪些端口开放。
 
-
+**第 0032 题：** 使用flask+d3做出简单的可视化界面。
