@@ -56,7 +56,7 @@
 	
 **第 0012 题：** 敏感词文本文件 filtered_words.txt，里面的内容 和 0011题一样，当用户输入敏感词语，则用 星号 * 替换，例如当用户输入「北京是个好城市」，则变成「**是个好城市」。
 
-**第 0013 题：** 用 Python 写一个爬图片的程序,爬[这个链接][https://www.zhihu.com/question/24340705]的壁纸
+**第 0013 题：** 用 Python 写一个爬图片的程序,爬[这个链接](https://www.zhihu.com/question/24340705)的壁纸
 
 **第 0014 题：** 纯文本文件 student.txt为学生信息, 里面的内容（包括花括号）如下所示：
 
@@ -163,7 +163,7 @@
 
 - 阅读资料 [Python's safest method to store and retrieve passwords from a database](http://stackoverflow.com/questions/2572099/pythons-safest-method-to-store-and-retrieve-passwords-from-a-database)
 
-**第 0022 题：** iPhone 6、iPhone 6 Plus 早已上市开卖。请查看你写得 第 0005 题的代码是否可以复用。
+**第 0022 题：** 使用flask+d3做出简单的可视化界面。
 
 **第 0023 题：** 使用 Python 的 Web 框架，做一个 Web 版本 留言簿 应用。
 
@@ -195,7 +195,7 @@
 3:文本-->电脑命令
 
 **第 0026 题：** 使用 Python 代码完成图片转字符，类似下图所示：
-![](https://pic1.zhimg.com/739f35ab6c535fcb83d16a02693fa5f4_b.png)
+![](http://7xp5pe.com1.z0.glb.clouddn.com/character.png)
 
 **第 0027 题：** python自动填问卷星的问卷
 
@@ -205,4 +205,4 @@
 
 **第 0030 题：** Python代码实现2048
 
-**第 0031 题：** 使用flask+d3做出简单的可视化界面。
+

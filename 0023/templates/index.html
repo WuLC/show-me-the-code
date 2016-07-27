@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+
+{{ wtf.quick_form(message_form) }}
+
+<br><br><br>
+<div class="navbar navbar-inverse">
+    <a class="navbar-brand"  href="/">历史留言</a>
+</div>
+
+{%if content%}
+<div class = 'container'>
+<h4>用户:{{content['name']}}</h4><br>
+<h4>内容:{{content['message']}}</h4>
+</div>
+
+{%endif%}
+
+{% endblock%}
