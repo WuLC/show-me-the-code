@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-07-26 15:03:35
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-07-29 17:03:51
+# @Last Modified time: 2016-07-29 22:10:10
 # @Email: liangchaowu5@gmail.com
 
 import os
@@ -58,16 +58,12 @@ def delete_record(user_name):
 def index():
     form = MessageFrom()
     if form.validate_on_submit():
-        if form.name.data and form.message.data:
+        if form.name.data and form.message.data: # 提交含有实际数据的表单的POST请求后，再刷新这些数据会丢失
             current_time = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             message = Message(user = form.name.data, message = form.message.data, time = current_time)
-            form.name.data, form.message.data = '', ''
             write_record(message)
         return redirect(url_for('index'))
-    try:
-        history_messages = reversed(Message.query.all())
-    except Exception:
-        history_messages = None
+    history_messages = reversed(Message.query.all())
     return render_template('index.html', message_form = form, messages=history_messages)
 
 
