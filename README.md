@@ -169,7 +169,7 @@
 
 [阅读资料：Python 有哪些 Web 框架](http://v2ex.com/t/151643#reply53)
 
-- ![留言簿参考](http://i.imgur.com/VIyCZ0i.jpg)
+- ![留言簿参考](http://static.zybuluo.com/WuLiangchao/5kyegv0hnooqxzsxjdy1cm48/image_1aoqu2cj46e018hhp4g27d1fs19.png)
 
 
 **第 0024 题：** 使用 Python 的 Web 框架，做一个 Web 版本 TodoList 应用。

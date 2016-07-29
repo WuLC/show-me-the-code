@@ -7,15 +7,16 @@
 
 <br><br><br>
 <div class="navbar navbar-inverse">
-    <a class="navbar-brand"  href="/">历史留言</a>
+    <a  class="navbar-brand"  href="/">历史留言</a>
 </div>
 
-{%if content%}
-<div class = 'container'>
-<h4>用户:{{content['name']}}</h4><br>
-<h4>内容:{{content['message']}}</h4>
+{%if messages%}
+{% for content in messages%}
+<div class="container">
+<p class ="bg-info" style="font-size:130%;">{{content.user}}&nbsp;&nbsp;&nbsp;&nbsp;{{content.time}}</p>
+<p  style="font-size:130%;">{{content.message}}</p>
 </div>
-
+{%endfor%}
 {%endif%}
 
 {% endblock%}
