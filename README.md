@@ -163,46 +163,13 @@
 
 - 阅读资料 [Python's safest method to store and retrieve passwords from a database](http://stackoverflow.com/questions/2572099/pythons-safest-method-to-store-and-retrieve-passwords-from-a-database)
 
-**第 0022 题：** 使用flask+d3做出简单的可视化界面。
 
-**第 0023 题：** 使用 Python 的 Web 框架，做一个 Web 版本 留言簿 应用。
+**第 0022 题：** 使用 Python 的 Web 框架，做一个 Web 版本 留言簿 应用。
 
 [阅读资料：Python 有哪些 Web 框架](http://v2ex.com/t/151643#reply53)
 
 - ![留言簿参考](http://static.zybuluo.com/WuLiangchao/5kyegv0hnooqxzsxjdy1cm48/image_1aoqu2cj46e018hhp4g27d1fs19.png)
 
 
-**第 0024 题：** 使用 Python 的 Web 框架，做一个 Web 版本 TodoList 应用。
-
-- ![SpringSide 版TodoList](http://i.imgur.com/NEf7zHp.jpg)
-
-**第 0025 题：** 使用 Python 实现：对着电脑吼一声,自动打开浏览器中的默认网站。
-
-    例如，对着笔记本电脑吼一声“百度”，浏览器自动打开百度首页。
-    
-    关键字：Speech to Text
-    
-参考思路：    
-1：获取电脑录音-->WAV文件
-    python record wav
-
-2：录音文件-->文本
-
-    STT: Speech to Text
-    
-    STT API Google API
-
-3:文本-->电脑命令
-
-**第 0026 题：** 使用 Python 代码完成图片转字符，类似下图所示：
-![](http://7xp5pe.com1.z0.glb.clouddn.com/character.png)
-
-**第 0027 题：** python自动填问卷星的问卷
-
-**第 0028 题：** 用Scrapy爬虫采集新浪天气信息
-
-**第 0029 题：** 使用Python来解析纯文本生成一个HTML页面的小程序。
-
-**第 0030 题：** Python代码实现2048
 
 
