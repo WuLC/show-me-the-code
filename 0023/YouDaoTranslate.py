@@ -2,7 +2,7 @@
 # @Author: WuLC
 # @Date:   2016-09-25 11:51:07
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-09-25 11:52:27
+# @Last Modified time: 2016-09-25 13:00:36
 # @Email: liangchaowu5@gmail.com
 
 import sys
@@ -11,8 +11,8 @@ import json
 
 
 # fill in your YouDao key and keyfrom  here
-KEY = '782091608'
-KEY_FROM = 'words1'
+KEY = 'XXXX'
+KEY_FROM = 'XXXX'
 
 class YoudaoTranslate:
     def __init__(self, key, keyfrom):
