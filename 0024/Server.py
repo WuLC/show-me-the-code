@@ -2,7 +2,7 @@
 # @Author: LC
 # @Date:   2016-09-30 20:02:20
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-09-30 21:52:10
+# @Last Modified time: 2016-10-02 23:17:30
 # @Email: liangchaowu5@gmail.com
 
 ###################################################
@@ -39,6 +39,11 @@ class RequestHandler(BaseHTTPRequestHandler):
             response += '<tr><td>%s</td><td>%s</td></tr>'%(k,v)
         response += '</table></html>'
         return response
+
+    def handle_error(self, error_message):
+        content = 'Error:'+ error_message
+        self.send_content(content)
+
 
 if __name__ == '__main__':
     server_address = ('', 10086)
