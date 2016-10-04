@@ -2,28 +2,77 @@
 # @Author: LC
 # @Date:   2016-09-30 20:02:20
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-10-02 23:17:30
+# @Last Modified time: 2016-10-04 14:44:07
 # @Email: liangchaowu5@gmail.com
 
 ###################################################
 # build a simple http server 
 ##################################################
+
+import os
 from BaseHTTPServer import HTTPServer,BaseHTTPRequestHandler
 
 class RequestHandler(BaseHTTPRequestHandler):
+    status_code = 200
     
     # deal with GET Request
-    def do_GET(self, status_code = 200):
-        self.send_response(status_code)
-        self.send_content(self.show_user_info())
+    def do_GET(self):
+        self.send_response(self.status_code)
+        path = os.getcwd().replace('\\','/') + self.path
+        if self.path == '/': # make request to the root directory
+            path += 'index.html'
+        if os.path.isfile(path):
+            # show on the page
+            if path.endswith(('html','htm','txt')):
+                with open(path) as f:
+                    self.send_page(f.read())
+            else: # send a file to the client
+                self.send_file(path)
+        else:
+            error_message = '404, file %s not exists'%self.path.split('/')[-1]
+            self.handle_error(404, error_message)
+        
 
-    def send_content(self, content):
+    def send_page(self, content):
+        """show content on the browser
+        
+        Args:
+            content (str): content to be shown on the browser
+        
+        Returns:None
+        """
         self.send_header('Content-Type', 'text/html')
         self.send_header('Content-Length', str(len(content)))
         self.end_headers()
         self.wfile.write(content)
 
-    def show_user_info(self):
+
+    def send_file(self, file_path): 
+        """offer the binary file to be downloaded by user
+        
+        Args:
+            file_path (str): file path on the server
+        """
+        self.send_header('Content-Type','application/octet-stream')
+        self.send_header('Content-Length', os.path.getsize(file_path))
+        self.end_headers()
+        # send a big file
+        size = 1024*100
+        with open(file_path, 'rb') as f:
+            while True:
+                chunk = f.read(size)
+                if chunk:
+                    self.wfile.write(chunk)
+                else:
+                    return
+
+
+    def user_info_page(self):
+        """show information of the user on the browser,including request headers and ip address
+        
+        Returns:
+            TYPE
+        """
         response = '<html><h1>Client information</h1><table border=1>'
 
         user_values = {
@@ -40,9 +89,19 @@ class RequestHandler(BaseHTTPRequestHandler):
         response += '</table></html>'
         return response
 
-    def handle_error(self, error_message):
+
+    def handle_error(self, error_code, error_message):
+        """deal with error
+        
+        Args:
+            error_code (int): http code represents the error
+            error_message (str): detail infomation of the error
+        
+        Returns:None
+        """
+        self.status_code = 404
         content = 'Error:'+ error_message
-        self.send_content(content)
+        self.send_page(content)
 
 
 if __name__ == '__main__':
