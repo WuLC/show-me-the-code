@@ -2,7 +2,7 @@
 # @Author: LC
 # @Date:   2016-09-30 20:02:20
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-10-04 14:44:07
+# @Last Modified time: 2016-10-05 15:41:08
 # @Email: liangchaowu5@gmail.com
 
 ###################################################
@@ -18,7 +18,8 @@ class RequestHandler(BaseHTTPRequestHandler):
     # deal with GET Request
     def do_GET(self):
         self.send_response(self.status_code)
-        path = os.getcwd().replace('\\','/') + self.path
+        # find the local path of the  directory from the requested url
+        path = os.getcwd().replace('\\','/') + self.path 
         if self.path == '/': # make request to the root directory
             path += 'index.html'
         if os.path.isfile(path):
@@ -28,6 +29,8 @@ class RequestHandler(BaseHTTPRequestHandler):
                     self.send_page(f.read())
             else: # send a file to the client
                 self.send_file(path)
+        elif os.path.isdir(path):
+            self.list_dir(path)
         else:
             error_message = '404, file %s not exists'%self.path.split('/')[-1]
             self.handle_error(404, error_message)
@@ -65,6 +68,21 @@ class RequestHandler(BaseHTTPRequestHandler):
                     self.wfile.write(chunk)
                 else:
                     return
+
+
+    def list_dir(self, dir_path):
+        """show all files under a directory and add url for each item
+        
+        Args:
+            dir_path (str): local path of directory
+        
+        Returns:None
+        """
+        files = os.listdir(dir_path)
+        content = ''
+        for f in files:
+            content += '<a href = "{0}">{1}</a></br>'.format(self.path+'/'+f, f) 
+        self.send_page(content)
 
 
     def user_info_page(self):
