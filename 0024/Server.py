@@ -2,7 +2,7 @@
 # @Author: LC
 # @Date:   2016-09-30 20:02:20
 # @Last modified by:   WuLC
-# @Last Modified time: 2016-10-05 15:41:08
+# @Last Modified time: 2016-10-14 12:00:50
 # @Email: liangchaowu5@gmail.com
 
 ###################################################
@@ -10,6 +10,8 @@
 ##################################################
 
 import os
+import cPickle as pickle
+import subprocess
 from BaseHTTPServer import HTTPServer,BaseHTTPRequestHandler
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -27,7 +29,12 @@ class RequestHandler(BaseHTTPRequestHandler):
             if path.endswith(('html','htm','txt')):
                 with open(path) as f:
                     self.send_page(f.read())
-            else: # send a file to the client
+            # execute the file and show the output to the client, CGI protocal
+            elif path.endswith('.py'):
+                content = self.run_cgi(path)
+                self.send_page(content)
+            # send a file to the client
+            else: 
                 self.send_file(path)
         elif os.path.isdir(path):
             self.list_dir(path)
@@ -70,6 +77,22 @@ class RequestHandler(BaseHTTPRequestHandler):
                     return
 
 
+    def run_cgi(self, file_path):
+        """run the script of the file_path and print its' output
+        
+        Args:
+            file_path (str): file path of the script 
+        
+        Returns:
+            content(str): std_out of the script
+        """
+        # how to pass the status of current object to the subprocess
+        command = 'python ' + file_path
+        p = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        return out
+
+
     def list_dir(self, dir_path):
         """show all files under a directory and add url for each item
         
@@ -83,29 +106,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         for f in files:
             content += '<a href = "{0}">{1}</a></br>'.format(self.path+'/'+f, f) 
         self.send_page(content)
-
-
-    def user_info_page(self):
-        """show information of the user on the browser,including request headers and ip address
-        
-        Returns:
-            TYPE
-        """
-        response = '<html><h1>Client information</h1><table border=1>'
-
-        user_values = {
-        'client_address': self.client_address[0]+':'+str(self.client_address[1]),
-        'request_version': self.request_version,
-        'request_method': self.command,
-        'path': self.path
-        }
-
-        for k,v in user_values.items():
-            response += '<tr><td>%s</td><td>%s</td></tr>'%(k,v)
-        for k,v in self.headers.items():
-            response += '<tr><td>%s</td><td>%s</td></tr>'%(k,v)
-        response += '</table></html>'
-        return response
 
 
     def handle_error(self, error_code, error_message):

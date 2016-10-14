@@ -1,0 +1,10 @@
+(i__main__
+RequestHandler
+p0
+(dp1
+S'requestline'
+p2
+S'GET /cgi/show_datetime.py HTTP/1.1'
+p3
+sS'wfile'
+p4
